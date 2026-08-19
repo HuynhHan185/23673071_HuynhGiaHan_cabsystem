@@ -1,4 +1,3 @@
-ngôn ngữ markdown 
 Bước 1: phân tích ngữ cảnh bussines context, bussines problem
 - bussines context
   Công ty ABC là doanh nghiệp cung cấp dịch vụ đặt xe trực tuyến (CAB).
@@ -52,7 +51,7 @@ ABC cần thay thế quy trình đặt xe và điều phối thủ công bằng 
 | **Tài xế** | Tài xế của ABC | Quản lý hồ sơ, phương tiện, trạng thái hoạt động, nhận chuyến và cập nhật trạng thái chuyến. |
 | **Nhân viên vận hành** | Operations Staff / Operations Manager | Quản lý khách hàng, tài xế, phương tiện, theo dõi chuyến, xử lý sự cố và giám sát hoạt động. |
 
-### Các bên liên quan hỗ trợ hệ thống
+Các bên liên quan hỗ trợ hệ thống
 Ngoài 3 nhóm người dùng chính, hệ thống còn tương tác với:
 - **Ban giám đốc:** Theo dõi báo cáo, doanh thu và hiệu quả hoạt động.
 - **Finance / Accounting:** Theo dõi giao dịch, doanh thu và đối soát thanh toán.
@@ -130,8 +129,8 @@ Bước 3: bussines goals
 | **BG11** | **Đảm bảo khả năng mở rộng và ổn định** | Hệ thống có khả năng phục vụ số lượng lớn khách hàng, tài xế và duy trì hoạt động khi tải tăng cao. |
 | **BG12** | **Hỗ trợ mở rộng trong tương lai** | Cho phép bổ sung dịch vụ mới, phương thức thanh toán, nhà cung cấp thông báo và thay đổi thành phần kỹ thuật mà không phải xây dựng lại toàn bộ hệ thống. |
 
-Bước 4: bóp scope, quản lý khách hàng, quản lý tài xế,..
-những cái không thuộc scope: dùng al dự báo yêu cầu, tìm đường đi ngắn nhất, phải deal với khách hàng
+Bước 4: scope, quản lý khách hàng, quản lý tài xế,..
+những cái không thuộc scope: dùng al dự báo yêu cầu, tìm đường đi ngắn nhất, phải deal với khách hàng,....
 
 Bước 5: Gặp khách hàng, chuyển đổi yêu cầu -> thành bussines requirment
 | Mã | Tên Business Requirement | Diễn giải |
@@ -201,7 +200,7 @@ Bước 7: Functional requirment
 | **FR32** | Ghi nhận lịch sử thao tác | Hệ thống lưu vết các thao tác quan trọng để phục vụ kiểm tra và truy vết khi xảy ra sự cố. |
 
 Bước 8: Bussines Rules và Exceptions
-## 8.1. Business Rules
+8.1. Business Rules
 
 | Mã | Business Rule | Diễn giải |
 |---|---|---|
@@ -228,7 +227,7 @@ Bước 8: Bussines Rules và Exceptions
 
 ---
 
-## 8.2. Exceptions
+8.2. Exceptions
 | Mã | Exception | Điều kiện xảy ra | Cách xử lý |
 |---|---|---|---|
 | **EX01** | Không tìm được tài xế | Không có tài xế phù hợp hoặc tất cả tài xế đều từ chối/không phản hồi. | Hệ thống thông báo cho khách hàng rằng chưa tìm được tài xế và cập nhật trạng thái yêu cầu. |
@@ -247,7 +246,7 @@ Bước 8: Bussines Rules và Exceptions
 | **EX14** | Chuyến bị lỗi hoặc bất thường | Chuyến có trạng thái không hợp lệ hoặc phát sinh vấn đề trong quá trình thực hiện. | Hệ thống đánh dấu chuyến cần xử lý và cho phép nhân viên vận hành kiểm tra, can thiệp. |
 
 ---
-## 8.3. Business Rules cần xác nhận với khách hàng
+8.3. Business Rules cần xác nhận với khách hàng
 Một số quy tắc trong đề bài chưa được xác định cụ thể. BA cần làm rõ trước khi phát triển:
 | Mã | Nội dung cần xác nhận | Câu hỏi cần làm rõ |
 |---|---|---|
@@ -265,6 +264,7 @@ Một số quy tắc trong đề bài chưa được xác định cụ thể. BA
 Bước 9: Mô hình hóa dữ liệu, xác định các thực thể, erd 
 
 Bước 10: Xác định non functional requirment 
-
+Bước 11: vẽ usecase, UC 
+Bước 12: usecase đặc tả 
 
 
