@@ -1,4 +1,4 @@
-Bước 1: phân tích ngữ cảnh bussines context, bussines problem
+### Bước 1: phân tích ngữ cảnh bussines context, bussines problem
 - Bussines context: 
   Công ty ABC là doanh nghiệp cung cấp dịch vụ đặt xe trực tuyến (CAB).
   Hiện tại, khách hàng có thể đặt xe thông qua:
@@ -62,7 +62,7 @@ Ngoài 3 nhóm người dùng chính, hệ thống còn tương tác với:
 - **IT / Development Team:** Xây dựng, triển khai và bảo trì hệ thống.
   
 
-Bước 2: Xác định stakeholder trong hệ thống, những bên liên quan trong hệ thống
+### Bước 2: Xác định stakeholder trong hệ thống, những bên liên quan trong hệ thống
 lập bảng
 | STT | Stakeholder | Vai trò |
 |-----|-------------|---------|
@@ -114,7 +114,7 @@ Ma trận
 ```
 
 
-Bước 3: Bussines goals
+### Bước 3: Bussines goals
 | ID | Business Goal | Mô tả |
 |---|---|---|
 | **BG01** | **Hỗ trợ thanh toán** | Hỗ trợ khách hàng thanh toán bằng tiền mặt và phương thức thanh toán điện tử/chuyển khoản. |
@@ -130,8 +130,7 @@ Bước 3: Bussines goals
 | **BG11** | **Đảm bảo khả năng mở rộng và ổn định** | Hệ thống có khả năng phục vụ số lượng lớn khách hàng, tài xế và duy trì hoạt động khi tải tăng cao. |
 | **BG12** | **Hỗ trợ mở rộng trong tương lai** | Cho phép bổ sung dịch vụ mới, phương thức thanh toán, nhà cung cấp thông báo và thay đổi thành phần kỹ thuật mà không phải xây dựng lại toàn bộ hệ thống. |
 
-Bước 4: Scope, quản lý khách hàng, quản lý tài xế,..
-những cái không thuộc scope: dùng al dự báo yêu cầu, tìm đường đi ngắn nhất, phải deal với khách hàng,....
+### Bước 4: Scope
 4.1. In Scope – Những chức năng thuộc phạm vi dự án
 
 | STT | Phạm vi | Mô tả |
@@ -203,7 +202,7 @@ Các chức năng như **AI dự báo nhu cầu, AI tối ưu điều phối, t�
 
 > **Lưu ý:** Out of Scope không có nghĩa là "không bao giờ làm". Đây là những chức năng **không nằm trong phạm vi triển khai hiện tại** hoặc **chưa đủ thông tin để cam kết**, có thể xem xét ở các phase sau.
 
-Bước 5: Gặp khách hàng, chuyển đổi yêu cầu -> thành bussines requirment
+### Bước 5: Bussines requirment
 | Mã | Tên Business Requirement | Diễn giải |
 |---|---|---|
 | **BR01** | **Cho phép đặt chuyến** | Hệ thống cho phép khách hàng nhập điểm đón, điểm đến, lựa chọn loại xe/dịch vụ và gửi yêu cầu đặt chuyến. |
@@ -231,7 +230,7 @@ Bước 5: Gặp khách hàng, chuyển đổi yêu cầu -> thành bussines req
 | **BR23** | **Khả năng mở rộng hệ thống** | Hệ thống có khả năng mở rộng khi số lượng khách hàng, tài xế và chuyến đi tăng cao. |
 | **BR24** | **Hỗ trợ mở rộng dịch vụ** | Hệ thống cho phép bổ sung loại dịch vụ, phương thức thanh toán và nhà cung cấp mới mà hạn chế thay đổi hệ thống hiện tại. |
 
-Bước 6: Bussines process, dùng công cụ mermaid 
+### Bước 6: Bussines process, dùng công cụ mermaid 
 6.1. Quy trình đặt xe và thực hiện chuyến
 
 ```mermaid
@@ -376,7 +375,7 @@ flowchart TD
     N --> Z
 ```
 
-Bước 7: Functional requirment 
+### Bước 7: Functional requirment 
 | Mã | Tên Functional Requirement | Diễn giải |
 |---|---|---|
 | **FR01** | Đăng ký tài khoản | Hệ thống cho phép khách hàng đăng ký tài khoản bằng cách cung cấp các thông tin cần thiết. |
@@ -412,7 +411,7 @@ Bước 7: Functional requirment
 | **FR31** | Xem báo cáo hoạt động | Hệ thống cung cấp báo cáo về số lượng chuyến, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả tài xế. |
 | **FR32** | Ghi nhận lịch sử thao tác | Hệ thống lưu vết các thao tác quan trọng để phục vụ kiểm tra và truy vết khi xảy ra sự cố. |
 
-Bước 8: Bussines Rules và Exceptions
+### Bước 8: Bussines Rules và Exceptions
 8.1. Business Rules
 
 | Mã | Business Rule | Diễn giải |
@@ -474,12 +473,240 @@ Một số quy tắc trong đề bài chưa được xác định cụ thể. BA
 | **TBC09** | Quy tắc đánh giá | Khách hàng được đánh giá trong bao lâu sau khi hoàn thành chuyến? Có được sửa/xóa đánh giá không? |
 | **TBC10** | Quy tắc xử lý tài xế | Tài xế từ chối nhiều chuyến liên tiếp có bị giới hạn hoặc thay đổi trạng thái không? |
 
-Bước 9: Mô hình hóa dữ liệu, xác định các thực thể, erd 
+### Bước 9: Mô hình hóa dữ liệu, xác định các thực thể, erd 
+9.1. Xác định các thực thể
 
-Bước 10: Xác định non functional requirment 
-Bước 11: vẽ usecase, UC 
-Bước 12: usecase đặc tả 
-Bước 13: Acception tiêu chí chấp nhận (AC) 
-Bước 14: Truy xuất nguồn gốc yêu cầu
+| Mã | Thực thể | Diễn giải |
+|---|---|---|
+| **E01** | Customer | Lưu thông tin khách hàng sử dụng dịch vụ đặt xe. |
+| **E02** | Driver | Lưu thông tin tài xế và trạng thái hoạt động của tài xế. |
+| **E03** | Vehicle | Lưu thông tin phương tiện của tài xế. |
+| **E04** | Trip | Lưu thông tin chuyến đi do khách hàng đặt. |
+| **E05** | TripStatus | Lưu trạng thái của chuyến đi trong quá trình thực hiện. |
+| **E06** | DriverLocation | Lưu thông tin vị trí của tài xế theo thời gian. |
+| **E07** | Fare | Lưu thông tin cước phí của chuyến đi. |
+| **E08** | Payment | Lưu thông tin giao dịch thanh toán. |
+| **E09** | PaymentMethod | Lưu phương thức thanh toán được sử dụng. |
+| **E10** | Notification | Lưu thông tin các thông báo được gửi đến khách hàng hoặc tài xế. |
+| **E11** | Rating | Lưu thông tin đánh giá của khách hàng dành cho tài xế. |
+| **E12** | Staff | Lưu thông tin nhân viên vận hành. |
+| **E13** | Role | Lưu thông tin vai trò và quyền của người dùng quản trị. |
+| **E14** | AuditLog | Lưu vết các thao tác quan trọng trong hệ thống. |
+
+---
+9.2. Các thuộc tính chính
+
+| Thực thể | Thuộc tính chính |
+|---|---|
+| **Customer** | customer_id, full_name, phone, email, password_hash, status, created_at |
+| **Driver** | driver_id, full_name, phone, email, password_hash, status, rating, created_at |
+| **Vehicle** | vehicle_id, driver_id, license_plate, vehicle_type, brand, model, status |
+| **Trip** | trip_id, customer_id, driver_id, pickup_location, destination, service_type, status, requested_at, started_at, completed_at |
+| **TripStatus** | status_id, trip_id, status, created_at |
+| **DriverLocation** | location_id, driver_id, latitude, longitude, recorded_at |
+| **Fare** | fare_id, trip_id, service_type, distance, duration, amount, calculated_at |
+| **Payment** | payment_id, trip_id, payment_method_id, amount, status, transaction_code, paid_at |
+| **PaymentMethod** | payment_method_id, method_name, status |
+| **Notification** | notification_id, recipient_id, recipient_type, notification_type, title, content, status, sent_at |
+| **Rating** | rating_id, trip_id, customer_id, driver_id, score, comment, created_at |
+| **Staff** | staff_id, full_name, email, password_hash, role_id, status |
+| **Role** | role_id, role_name, description |
+| **AuditLog** | log_id, staff_id, action, entity_type, entity_id, created_at |
+
+---
+9.3. Mối quan hệ giữa các thực thể
+
+| Quan hệ | Cardinality | Diễn giải |
+|---|---|---|
+| **Customer – Trip** | 1 : N | Một khách hàng có thể đặt nhiều chuyến; một chuyến thuộc về một khách hàng. |
+| **Driver – Trip** | 1 : N | Một tài xế có thể thực hiện nhiều chuyến; một chuyến có tối đa một tài xế được phân công. |
+| **Driver – Vehicle** | 1 : N | Một tài xế có thể sử dụng một hoặc nhiều phương tiện theo nghiệp vụ. |
+| **Trip – TripStatus** | 1 : N | Một chuyến có nhiều lần thay đổi trạng thái trong quá trình thực hiện. |
+| **Driver – DriverLocation** | 1 : N | Một tài xế có nhiều bản ghi vị trí theo thời gian. |
+| **Trip – Fare** | 1 : 1 | Mỗi chuyến hoàn thành có một thông tin cước phí được tính. |
+| **Trip – Payment** | 1 : N | Một chuyến có thể có nhiều lần giao dịch thanh toán nếu thanh toán thất bại và thực hiện lại. |
+| **PaymentMethod – Payment** | 1 : N | Một phương thức thanh toán có thể được sử dụng cho nhiều giao dịch. |
+| **Trip – Notification** | 1 : N | Một chuyến có thể phát sinh nhiều thông báo. |
+| **Trip – Rating** | 1 : 0..1 | Một chuyến có thể có tối đa một đánh giá từ khách hàng. |
+| **Customer – Rating** | 1 : N | Một khách hàng có thể thực hiện nhiều đánh giá. |
+| **Driver – Rating** | 1 : N | Một tài xế có thể nhận nhiều đánh giá. |
+| **Role – Staff** | 1 : N | Một vai trò có thể được gán cho nhiều nhân viên. |
+| **Staff – AuditLog** | 1 : N | Một nhân viên có thể tạo nhiều bản ghi audit log. |
+
+---
+
+9.4. ERD – Entity Relationship Diagram
+
+```mermaid
+erDiagram
+
+    CUSTOMER ||--o{ TRIP : "đặt"
+    DRIVER ||--o{ TRIP : "thực hiện"
+    DRIVER ||--o{ VEHICLE : "sử dụng"
+    
+    TRIP ||--o{ TRIP_STATUS : "có"
+    DRIVER ||--o{ DRIVER_LOCATION : "cập nhật"
+    
+    TRIP ||--|| FARE : "có cước"
+    
+    TRIP ||--o{ PAYMENT : "có giao dịch"
+    PAYMENT_METHOD ||--o{ PAYMENT : "được sử dụng"
+    
+    TRIP ||--o{ NOTIFICATION : "phát sinh"
+    
+    TRIP ||--o| RATING : "có đánh giá"
+    CUSTOMER ||--o{ RATING : "đánh giá"
+    DRIVER ||--o{ RATING : "được đánh giá"
+    
+    ROLE ||--o{ STAFF : "được gán"
+    STAFF ||--o{ AUDIT_LOG : "tạo"
+
+    CUSTOMER {
+        int customer_id PK
+        string full_name
+        string phone
+        string email
+        string password_hash
+        string status
+        datetime created_at
+    }
+
+    DRIVER {
+        int driver_id PK
+        string full_name
+        string phone
+        string email
+        string password_hash
+        string status
+        decimal rating
+        datetime created_at
+    }
+
+    VEHICLE {
+        int vehicle_id PK
+        int driver_id FK
+        string license_plate
+        string vehicle_type
+        string brand
+        string model
+        string status
+    }
+
+    TRIP {
+        int trip_id PK
+        int customer_id FK
+        int driver_id FK
+        string pickup_location
+        string destination
+        string service_type
+        string status
+        datetime requested_at
+        datetime started_at
+        datetime completed_at
+    }
+
+    TRIP_STATUS {
+        int status_id PK
+        int trip_id FK
+        string status
+        datetime created_at
+    }
+
+    DRIVER_LOCATION {
+        int location_id PK
+        int driver_id FK
+        decimal latitude
+        decimal longitude
+        datetime recorded_at
+    }
+
+    FARE {
+        int fare_id PK
+        int trip_id FK
+        string service_type
+        decimal distance
+        int duration
+        decimal amount
+        datetime calculated_at
+    }
+
+    PAYMENT {
+        int payment_id PK
+        int trip_id FK
+        int payment_method_id FK
+        decimal amount
+        string status
+        string transaction_code
+        datetime paid_at
+    }
+
+    PAYMENT_METHOD {
+        int payment_method_id PK
+        string method_name
+        string status
+    }
+
+    NOTIFICATION {
+        int notification_id PK
+        int trip_id FK
+        int recipient_id
+        string recipient_type
+        string notification_type
+        string title
+        string content
+        string status
+        datetime sent_at
+    }
+
+    RATING {
+        int rating_id PK
+        int trip_id FK
+        int customer_id FK
+        int driver_id FK
+        int score
+        string comment
+        datetime created_at
+    }
+
+    STAFF {
+        int staff_id PK
+        int role_id FK
+        string full_name
+        string email
+        string password_hash
+        string status
+    }
+
+    ROLE {
+        int role_id PK
+        string role_name
+        string description
+    }
+
+    AUDIT_LOG {
+        int log_id PK
+        int staff_id FK
+        string action
+        string entity_type
+        int entity_id
+        datetime created_at
+    }
+```
+
+9.5. Ghi chú mô hình dữ liệu
+
+- **Customer, Driver, Staff** là các nhóm người dùng chính của hệ thống.
+- **Trip** là thực thể trung tâm, liên kết với khách hàng, tài xế, trạng thái, cước phí, thanh toán, thông báo và đánh giá.
+- **DriverLocation** lưu nhiều vị trí của tài xế theo thời gian để phục vụ việc tìm tài xế và theo dõi chuyến.
+- **Payment** được tách khỏi **Trip** để hỗ trợ trường hợp thanh toán thất bại và thanh toán lại.
+- Thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán **không được lưu trực tiếp trong CAB**.
+- **TripStatus** được tách riêng để lưu lịch sử thay đổi trạng thái thay vì chỉ lưu trạng thái hiện tại của chuyến.
+- **AuditLog** phục vụ việc truy vết các thao tác quan trọng của nhân viên vận hành.
+
+### Bước 10: Xác định non functional requirment 
+### Bước 11: vẽ usecase, UC 
+### Bước 12: usecase đặc tả 
+### Bước 13: Acception tiêu chí chấp nhận (AC) 
+### Bước 14: Truy xuất nguồn gốc yêu cầu
 
 
