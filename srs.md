@@ -19,8 +19,7 @@ ABC cần thay thế quy trình đặt xe và điều phối thủ công bằng 
 - Đảm bảo hệ thống hoạt động ổn định khi số lượng người dùng tăng cao.
 - Có khả năng mở rộng thêm dịch vụ và tích hợp mới trong tương lai.
 
-- khách hàng muốn giải quyết vấn đề gì
-  Khách hàng muốn giải quyết các vấn đề chính sau:
+- Khách hàng muốn giải quyết các vấn đề chính sau:
 1. **Giảm việc điều phối tài xế thủ công**
    - Tự động tìm tài xế phù hợp và gần khách hàng.
    - Tự động chuyển yêu cầu sang tài xế khác nếu tài xế được đề xuất từ chối hoặc không phản hồi.
