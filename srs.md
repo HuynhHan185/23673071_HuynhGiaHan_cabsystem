@@ -63,5 +63,9 @@ ma trận
                                   THẤP          CAO
                                      MỨC ĐỘ QUAN TÂM
 
+Bước 3: bussines goal
+bg01: hỗ trợ thanh toán
+- thanh toán tiền mặt, chuyển khoản
+bg02: cho phép tìm tài xế tự động
 
 
