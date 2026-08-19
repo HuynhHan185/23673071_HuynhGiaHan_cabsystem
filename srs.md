@@ -1,13 +1,13 @@
 Bước 1: phân tích ngữ cảnh bussines context, bussines problem
-- bussines context
+- Bussines context: 
   Công ty ABC là doanh nghiệp cung cấp dịch vụ đặt xe trực tuyến (CAB).
   Hiện tại, khách hàng có thể đặt xe thông qua:
     - Tổng đài.
     - Ứng dụng đơn giản hiện có.
-  - Tuy nhiên, hệ thống hiện tại chưa đáp ứng tốt khi quy mô khách hàng và tài xế tăng lên. Việc phân công tài xế còn phụ thuộc nhiều vào thao tác thủ công, khách hàng khó theo dõi trạng thái chuyến đi và thông tin thanh toán chưa được quản lý tập trung.
-  - Doanh nghiệp mong muốn xây dựng một nền tảng CAB mới có khả năng phục vụ số lượng lớn khách hàng     và tài xế, đồng thời có kiến trúc linh hoạt để có thể mở rộng thêm các tính năng và dịch vụ trongtương lai.
+  Tuy nhiên, hệ thống hiện tại chưa đáp ứng tốt khi quy mô khách hàng và tài xế tăng lên. Việc      phân công tài xế còn phụ thuộc nhiều vào thao tác thủ công, khách hàng khó theo dõi trạng thái    chuyến đi và thông tin thanh toán chưa được quản lý tập trung.
+  Doanh nghiệp mong muốn xây dựng một nền tảng CAB mới có khả năng phục vụ số lượng lớn khách       hàng và tài xế, đồng thời có kiến trúc linh hoạt để có thể mở rộng thêm các tính năng và dịch     vụ trongtương lai.
 
-- bussines problem
+- Bussines problem:
 ABC cần thay thế quy trình đặt xe và điều phối thủ công bằng một nền tảng CAB tập trung, có khả năng:
 - Tự động hóa việc tìm kiếm và điều phối tài xế.
 - Quản lý toàn bộ vòng đời của chuyến đi.
@@ -133,6 +133,76 @@ Bước 3: bussines goals
 
 Bước 4: scope, quản lý khách hàng, quản lý tài xế,..
 những cái không thuộc scope: dùng al dự báo yêu cầu, tìm đường đi ngắn nhất, phải deal với khách hàng,....
+4.1. In Scope – Những chức năng thuộc phạm vi dự án
+
+| STT | Phạm vi | Mô tả |
+|---:|---|---|
+| **1** | **Quản lý khách hàng** | Đăng ký, đăng nhập, cập nhật thông tin cá nhân và quản lý tài khoản khách hàng. |
+| **2** | **Quản lý tài xế** | Quản lý hồ sơ tài xế, trạng thái hoạt động và thông tin liên quan đến tài xế. |
+| **3** | **Quản lý phương tiện** | Quản lý thông tin phương tiện và liên kết phương tiện với tài xế. |
+| **4** | **Đặt chuyến** | Khách hàng nhập điểm đón, điểm đến, lựa chọn loại xe/dịch vụ và gửi yêu cầu đặt chuyến. |
+| **5** | **Tìm và điều phối tài xế** | Hệ thống tự động tìm tài xế phù hợp dựa trên vị trí, trạng thái sẵn sàng và các tiêu chí vận hành. |
+| **6** | **Theo dõi chuyến đi** | Khách hàng theo dõi trạng thái chuyến và thông tin vị trí tài xế trong quá trình thực hiện chuyến. |
+| **7** | **Quản lý trạng thái chuyến** | Tài xế cập nhật các trạng thái như đã đến điểm đón, đã đón khách, đang di chuyển và hoàn thành chuyến. |
+| **8** | **Tính cước** | Hệ thống xác định số tiền khách hàng phải trả dựa trên chính sách tính cước của doanh nghiệp. |
+| **9** | **Thanh toán** | Hỗ trợ thanh toán tiền mặt và thanh toán điện tử thông qua nhà cung cấp thanh toán bên ngoài. |
+| **10** | **Thông báo** | Gửi thông báo cho khách hàng và tài xế về các sự kiện quan trọng của chuyến đi và thanh toán. |
+| **11** | **Lịch sử chuyến đi** | Khách hàng có thể xem lịch sử các chuyến đã thực hiện và thông tin liên quan. |
+| **12** | **Đánh giá tài xế** | Khách hàng có thể đánh giá tài xế sau khi hoàn thành chuyến đi. |
+| **13** | **Quản lý vận hành** | Nhân viên vận hành theo dõi chuyến đang diễn ra, trạng thái tài xế và xử lý các trường hợp bất thường. |
+| **14** | **Quản lý giao dịch** | Tra cứu lịch sử giao dịch, trạng thái thanh toán và hỗ trợ đối soát. |
+| **15** | **Phân quyền** | Kiểm soát quyền truy cập của các nhóm người dùng và nhân viên vận hành. |
+| **16** | **Báo cáo** | Cung cấp báo cáo về số lượng chuyến, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả tài xế. |
+| **17** | **Bảo mật và audit** | Bảo vệ dữ liệu người dùng, dữ liệu vị trí, dữ liệu giao dịch và ghi nhận các thao tác quan trọng. |
+
+---
+4.2. Out of Scope – Những chức năng chưa thuộc phạm vi
+
+| STT | Chức năng | Lý do / Ghi chú |
+|---:|---|---|
+| **1** | **AI dự báo nhu cầu đặt xe** | Đề bài chưa yêu cầu. Nếu muốn triển khai cần đánh giá thêm dữ liệu, chi phí và tính khả thi với khách hàng. |
+| **2** | **AI dự đoán nhu cầu theo thời gian/khu vực** | Chưa thuộc yêu cầu hiện tại. Cần xác nhận với khách hàng nếu muốn đưa vào phạm vi. |
+| **3** | **AI tự động dự báo giá cước** | Chính sách tính cước chưa được khách hàng xác định nên chưa đưa vào phạm vi. |
+| **4** | **Tìm đường đi ngắn nhất** | Đề bài yêu cầu tìm tài xế dựa trên vị trí nhưng chưa yêu cầu hệ thống tự xây dựng thuật toán tìm đường. Cần xác nhận có sử dụng dịch vụ bản đồ bên ngoài hay không. |
+| **5** | **Xây dựng hệ thống bản đồ riêng** | Không nằm trong phạm vi hiện tại. Có thể tích hợp với bên thứ ba nếu cần. |
+| **6** | **Xây dựng hệ thống thanh toán riêng** | Hệ thống chỉ tích hợp Payment Provider bên ngoài, không tự xây dựng cổng thanh toán. |
+| **7** | **Lưu thông tin thẻ/tài khoản thanh toán** | Không lưu trực tiếp dữ liệu thanh toán nhạy cảm trong hệ thống CAB. |
+| **8** | **Marketing và quảng cáo** | Không thuộc quy trình vận hành đặt xe được mô tả trong đề bài. |
+| **9** | **Quản lý nhân sự và tiền lương tài xế** | Không được đề cập trong yêu cầu hiện tại. |
+| **10** | **Quản lý bảo dưỡng phương tiện** | Chưa được đề cập trong phạm vi nghiệp vụ hiện tại. |
+| **11** | **Hệ thống loyalty/điểm thưởng** | Chưa có yêu cầu về chương trình khách hàng thân thiết. |
+| **12** | **Chat trực tiếp giữa khách hàng và tài xế** | Chưa được đề cập trong yêu cầu hiện tại. Cần xác nhận với khách hàng nếu muốn bổ sung. |
+| **13** | **Dịch vụ giao hàng** | Hiện tại hệ thống tập trung vào dịch vụ đặt xe; các loại dịch vụ mới cần được xác nhận ở giai đoạn mở rộng. |
+
+---
+4.3. Các nội dung cần xác nhận với khách hàng
+
+Một số chức năng có thể liên quan đến hệ thống nhưng **chưa đủ thông tin để xác định có thuộc Scope hay không**.
+
+| ID | Nội dung cần xác nhận | Câu hỏi dành cho khách hàng |
+|---|---|---|
+| **SCOPE01** | Tìm đường đi | Hệ thống có cần tự tính tuyến đường hay chỉ sử dụng API của nhà cung cấp bản đồ? |
+| **SCOPE02** | AI dự báo nhu cầu | Khách hàng có yêu cầu sử dụng AI để dự báo nhu cầu đặt xe trong tương lai không? |
+| **SCOPE03** | AI điều phối tài xế | Việc lựa chọn tài xế chỉ dựa trên các rule cố định hay cần sử dụng AI/ML? |
+| **SCOPE04** | Giá cước động | Có áp dụng giá cước thay đổi theo thời gian, khu vực hoặc nhu cầu hay không? |
+| **SCOPE05** | Chat khách hàng – tài xế | Có cần chức năng nhắn tin trực tiếp giữa khách hàng và tài xế không? |
+| **SCOPE06** | Loyalty | Có cần chương trình điểm thưởng, voucher hoặc khách hàng thân thiết không? |
+| **SCOPE07** | Bảo dưỡng phương tiện | Có cần quản lý lịch bảo dưỡng, đăng kiểm và tình trạng phương tiện không? |
+| **SCOPE08** | Dịch vụ mới | Trong giai đoạn hiện tại có triển khai thêm dịch vụ ngoài đặt xe hay chỉ thiết kế kiến trúc để mở rộng sau này? |
+
+---
+4.4. Scope Summary
+In Scope
+
+Hệ thống CAB trong phạm vi dự án tập trung vào:
+
+**Quản lý khách hàng → Quản lý tài xế → Quản lý phương tiện → Đặt chuyến → Tìm/điều phối tài xế → Thực hiện chuyến → Tính cước → Thanh toán → Thông báo → Đánh giá → Quản lý vận hành → Báo cáo.**
+
+### Out of Scope
+
+Các chức năng như **AI dự báo nhu cầu, AI tối ưu điều phối, tự xây dựng hệ thống tìm đường, xây dựng Payment Gateway riêng, Marketing, Loyalty, quản lý nhân sự và bảo dưỡng phương tiện** chưa thuộc phạm vi hiện tại và cần được xác nhận riêng với khách hàng.
+
+> **Lưu ý:** Out of Scope không có nghĩa là "không bao giờ làm". Đây là những chức năng **không nằm trong phạm vi triển khai hiện tại** hoặc **chưa đủ thông tin để cam kết**, có thể xem xét ở các phase sau.
 
 Bước 5: Gặp khách hàng, chuyển đổi yêu cầu -> thành bussines requirment
 | Mã | Tên Business Requirement | Diễn giải |
@@ -268,5 +338,6 @@ Bước 9: Mô hình hóa dữ liệu, xác định các thực thể, erd
 Bước 10: Xác định non functional requirment 
 Bước 11: vẽ usecase, UC 
 Bước 12: usecase đặc tả 
+Bước 13: Acception tiêu chí chấp nhận (AC) 
 
 
