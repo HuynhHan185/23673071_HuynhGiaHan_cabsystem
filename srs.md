@@ -42,8 +42,7 @@ ABC cần thay thế quy trình đặt xe và điều phối thủ công bằng 
    - Hệ thống có thể phục vụ số lượng lớn khách hàng và tài xế.
    - Có thể bổ sung dịch vụ, phương thức thanh toán và nhà cung cấp thông báo mới trong tương lai.
   
-- ai sẽ sử dụng he thong
-Hệ thống CAB có 3 nhóm người dùng chính:
+- Hệ thống CAB có 3 nhóm người dùng chính:
 
 | Nhóm người dùng | Đối tượng | Mục đích sử dụng |
 |---|---|---|
@@ -51,7 +50,7 @@ Hệ thống CAB có 3 nhóm người dùng chính:
 | **Tài xế** | Tài xế của ABC | Quản lý hồ sơ, phương tiện, trạng thái hoạt động, nhận chuyến và cập nhật trạng thái chuyến. |
 | **Nhân viên vận hành** | Operations Staff / Operations Manager | Quản lý khách hàng, tài xế, phương tiện, theo dõi chuyến, xử lý sự cố và giám sát hoạt động. |
 
-### Các bên liên quan hỗ trợ hệ thống
+Các bên liên quan hỗ trợ hệ thống
 
 Ngoài 3 nhóm người dùng chính, hệ thống còn tương tác với:
 
@@ -63,7 +62,7 @@ Ngoài 3 nhóm người dùng chính, hệ thống còn tương tác với:
 - **IT / Development Team:** Xây dựng, triển khai và bảo trì hệ thống.
   
 
-Bước 2: xác định stakeholder trong hệ thống, những bên liên quan trong hệ thống
+Bước 2: Xác định stakeholder trong hệ thống, những bên liên quan trong hệ thống
 lập bảng
 | STT | Stakeholder | Vai trò |
 |-----|-------------|---------|
@@ -80,7 +79,7 @@ lập bảng
 | 11 | Security / Compliance | Kiểm soát bảo mật và tuân thủ |
 | 12 | Customer Support | Hỗ trợ khách hàng và xử lý khiếu nại |
 
-ma trận
+Ma trận
 ```
                     MA TRẬN MỨC ĐỘ ẢNH HƯỞNG STAKEHOLDER
 
@@ -115,7 +114,7 @@ ma trận
 ```
 
 
-Bước 3: bussines goals
+Bước 3: Bussines goals
 | ID | Business Goal | Mô tả |
 |---|---|---|
 | **BG01** | **Hỗ trợ thanh toán** | Hỗ trợ khách hàng thanh toán bằng tiền mặt và phương thức thanh toán điện tử/chuyển khoản. |
@@ -131,7 +130,7 @@ Bước 3: bussines goals
 | **BG11** | **Đảm bảo khả năng mở rộng và ổn định** | Hệ thống có khả năng phục vụ số lượng lớn khách hàng, tài xế và duy trì hoạt động khi tải tăng cao. |
 | **BG12** | **Hỗ trợ mở rộng trong tương lai** | Cho phép bổ sung dịch vụ mới, phương thức thanh toán, nhà cung cấp thông báo và thay đổi thành phần kỹ thuật mà không phải xây dựng lại toàn bộ hệ thống. |
 
-Bước 4: scope, quản lý khách hàng, quản lý tài xế,..
+Bước 4: Scope, quản lý khách hàng, quản lý tài xế,..
 những cái không thuộc scope: dùng al dự báo yêu cầu, tìm đường đi ngắn nhất, phải deal với khách hàng,....
 4.1. In Scope – Những chức năng thuộc phạm vi dự án
 
@@ -232,8 +231,137 @@ Bước 5: Gặp khách hàng, chuyển đổi yêu cầu -> thành bussines req
 | **BR23** | **Khả năng mở rộng hệ thống** | Hệ thống có khả năng mở rộng khi số lượng khách hàng, tài xế và chuyến đi tăng cao. |
 | **BR24** | **Hỗ trợ mở rộng dịch vụ** | Hệ thống cho phép bổ sung loại dịch vụ, phương thức thanh toán và nhà cung cấp mới mà hạn chế thay đổi hệ thống hiện tại. |
 
-Bước 6: Bussines process
-dùng công cụ mermaid 
+Bước 6: Bussines process, dùng công cụ mermaid 
+6.1. Quy trình đặt xe và thực hiện chuyến
+```mermaid
+flowchart TD
+    A([Bắt đầu]) --> B[Khách hàng đăng nhập]
+    B --> C[Nhập điểm đón và điểm đến]
+    C --> D[Chọn loại xe / dịch vụ]
+    D --> E[Gửi yêu cầu đặt chuyến]
+    E --> F[Hệ thống tiếp nhận yêu cầu]
+    F --> G[Tìm tài xế phù hợp]
+
+    G --> H{Có tài xế phù hợp?}
+
+    H -- Không --> I[Thông báo không tìm được tài xế]
+    I --> Z([Kết thúc])
+
+    H -- Có --> J[Gửi yêu cầu đến tài xế]
+    J --> K{Tài xế chấp nhận?}
+
+    K -- Không --> L{Còn tài xế khác?}
+    L -- Có --> G
+    L -- Không --> I
+
+    K -- Có --> M[Thông báo tài xế đã nhận chuyến]
+    M --> N[Tài xế di chuyển đến điểm đón]
+    N --> O[Cập nhật vị trí và thời gian dự kiến]
+    O --> P[Tài xế đến điểm đón]
+    P --> Q[Thông báo tài xế đã đến]
+    Q --> R[Tài xế đón khách]
+    R --> S[Cập nhật trạng thái đang di chuyển]
+    S --> T[Thực hiện chuyến đi]
+    T --> U[Hoàn thành chuyến]
+    U --> V[Tính cước]
+    V --> W{Phương thức thanh toán}
+
+    W -- Tiền mặt --> X[Ghi nhận thanh toán tiền mặt]
+    W -- Điện tử --> Y[Thanh toán qua Payment Provider]
+
+    Y --> AA{Thanh toán thành công?}
+    AA -- Có --> AB[Cập nhật thanh toán thành công]
+    AA -- Không --> AC[Thông báo thanh toán thất bại]
+    AC --> AD[Cho phép thanh toán lại theo chính sách]
+    AD --> Y
+
+    X --> AE[Thông báo hoàn thành chuyến]
+    AB --> AE
+    AE --> AF[Khách hàng đánh giá tài xế]
+    AF --> Z([Kết thúc])
+6.2 Quy trình quản lý và vận hành
+flowchart TD
+    A([Bắt đầu]) --> B[Nhân viên vận hành đăng nhập]
+    B --> C{Kiểm tra quyền truy cập}
+
+    C -- Không có quyền --> D[Thông báo từ chối truy cập]
+    D --> Z([Kết thúc])
+
+    C -- Có quyền --> E[Truy cập hệ thống quản trị]
+
+    E --> F{Chức năng quản lý}
+
+    F --> G[Quản lý khách hàng]
+    F --> H[Quản lý tài xế]
+    F --> I[Quản lý phương tiện]
+    F --> J[Theo dõi chuyến đang diễn ra]
+    F --> K[Tra cứu giao dịch]
+    F --> L[Xử lý chuyến bất thường]
+    F --> M[Xem báo cáo]
+
+    G --> N[Ghi nhận thao tác]
+    H --> N
+    I --> N
+    J --> N
+    K --> N
+    L --> N
+    M --> N
+
+    N --> O[Audit Log]
+    O --> Z([Kết thúc])
+6.3 Quy trình tìm và phân công tài xế
+flowchart TD
+    A([Có yêu cầu đặt chuyến]) --> B[Xác định vị trí khách hàng]
+    B --> C[Lấy danh sách tài xế đang sẵn sàng]
+    C --> D[Lọc tài xế phù hợp]
+    D --> E{Có tài xế phù hợp?}
+
+    E -- Không --> F[Thông báo không tìm được tài xế]
+    F --> Z([Kết thúc])
+
+    E -- Có --> G[Ưu tiên tài xế theo tiêu chí vận hành]
+    G --> H[Gửi yêu cầu đến tài xế]
+    H --> I[Chờ phản hồi]
+
+    I --> J{Tài xế phản hồi?}
+
+    J -- Không --> K[Hết thời gian phản hồi]
+    K --> L{Còn tài xế khác?}
+
+    J -- Có --> M{Tài xế chấp nhận?}
+    M -- Không --> L
+
+    L -- Có --> G
+    L -- Không --> F
+
+    M -- Có --> N[Gán tài xế cho chuyến]
+    N --> O[Thông báo cho khách hàng]
+    O --> P([Kết thúc])
+6.4. Quy trình thanh toán
+flowchart TD
+    A([Chuyến hoàn thành]) --> B[Tính cước]
+    B --> C[Hiển thị số tiền phải trả]
+    C --> D{Khách hàng chọn phương thức}
+
+    D -- Tiền mặt --> E[Khách hàng thanh toán tiền mặt]
+    E --> F[Ghi nhận thanh toán]
+    F --> Z([Kết thúc])
+
+    D -- Thanh toán điện tử --> G[Gửi yêu cầu Payment Provider]
+    G --> H{Thanh toán thành công?}
+
+    H -- Có --> I[Cập nhật trạng thái thanh toán thành công]
+    I --> J[Thông báo kết quả cho khách hàng]
+    J --> Z
+
+    H -- Không --> K[Cập nhật trạng thái thất bại]
+    K --> L[Thông báo thanh toán thất bại]
+    L --> M{Thanh toán lại?}
+
+    M -- Có --> G
+    M -- Không --> N[Xử lý theo chính sách doanh nghiệp]
+    N --> Z
+```
 
 Bước 7: Functional requirment 
 | Mã | Tên Functional Requirement | Diễn giải |
