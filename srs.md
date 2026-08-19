@@ -44,15 +44,18 @@ ABC cần thay thế quy trình đặt xe và điều phối thủ công bằng 
    - Có thể bổ sung dịch vụ, phương thức thanh toán và nhà cung cấp thông báo mới trong tương lai.
   
 - ai sẽ sử dụng he thong
-  Hệ thống CAB có 3 nhóm người dùng chính:
+Hệ thống CAB có 3 nhóm người dùng chính:
+
 | Nhóm người dùng | Đối tượng | Mục đích sử dụng |
 |---|---|---|
 | **Khách hàng** | Người có nhu cầu đặt xe | Đăng ký, đăng nhập, đặt xe, theo dõi chuyến, thanh toán, xem lịch sử và đánh giá tài xế. |
 | **Tài xế** | Tài xế của ABC | Quản lý hồ sơ, phương tiện, trạng thái hoạt động, nhận chuyến và cập nhật trạng thái chuyến. |
 | **Nhân viên vận hành** | Operations Staff / Operations Manager | Quản lý khách hàng, tài xế, phương tiện, theo dõi chuyến, xử lý sự cố và giám sát hoạt động. |
 
-Các bên liên quan hỗ trợ hệ thống
+### Các bên liên quan hỗ trợ hệ thống
+
 Ngoài 3 nhóm người dùng chính, hệ thống còn tương tác với:
+
 - **Ban giám đốc:** Theo dõi báo cáo, doanh thu và hiệu quả hoạt động.
 - **Finance / Accounting:** Theo dõi giao dịch, doanh thu và đối soát thanh toán.
 - **System Administrator:** Quản trị tài khoản, hệ thống và phân quyền.
