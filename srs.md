@@ -233,73 +233,78 @@ Bước 5: Gặp khách hàng, chuyển đổi yêu cầu -> thành bussines req
 
 Bước 6: Bussines process, dùng công cụ mermaid 
 6.1. Quy trình đặt xe và thực hiện chuyến
+
 ```mermaid
 flowchart TD
-    A([Bắt đầu]) --> B[Khách hàng đăng nhập]
-    B --> C[Nhập điểm đón và điểm đến]
-    C --> D[Chọn loại xe / dịch vụ]
-    D --> E[Gửi yêu cầu đặt chuyến]
-    E --> F[Hệ thống tiếp nhận yêu cầu]
-    F --> G[Tìm tài xế phù hợp]
+    A["Bắt đầu"] --> B["Khách hàng đăng nhập"]
+    B --> C["Nhập điểm đón và điểm đến"]
+    C --> D["Chọn loại xe / dịch vụ"]
+    D --> E["Gửi yêu cầu đặt chuyến"]
+    E --> F["Hệ thống tiếp nhận yêu cầu"]
+    F --> G["Tìm tài xế phù hợp"]
 
-    G --> H{Có tài xế phù hợp?}
+    G --> H{"Có tài xế phù hợp?"}
 
-    H -- Không --> I[Thông báo không tìm được tài xế]
-    I --> Z([Kết thúc])
+    H -->|Không| I["Thông báo không tìm được tài xế"]
+    I --> Z["Kết thúc"]
 
-    H -- Có --> J[Gửi yêu cầu đến tài xế]
-    J --> K{Tài xế chấp nhận?}
+    H -->|Có| J["Gửi yêu cầu đến tài xế"]
+    J --> K{"Tài xế chấp nhận?"}
 
-    K -- Không --> L{Còn tài xế khác?}
-    L -- Có --> G
-    L -- Không --> I
+    K -->|Không| L{"Còn tài xế khác?"}
+    L -->|Có| G
+    L -->|Không| I
 
-    K -- Có --> M[Thông báo tài xế đã nhận chuyến]
-    M --> N[Tài xế di chuyển đến điểm đón]
-    N --> O[Cập nhật vị trí và thời gian dự kiến]
-    O --> P[Tài xế đến điểm đón]
-    P --> Q[Thông báo tài xế đã đến]
-    Q --> R[Tài xế đón khách]
-    R --> S[Cập nhật trạng thái đang di chuyển]
-    S --> T[Thực hiện chuyến đi]
-    T --> U[Hoàn thành chuyến]
-    U --> V[Tính cước]
-    V --> W{Phương thức thanh toán}
+    K -->|Có| M["Thông báo tài xế đã nhận chuyến"]
+    M --> N["Tài xế di chuyển đến điểm đón"]
+    N --> O["Cập nhật vị trí và thời gian dự kiến"]
+    O --> P["Tài xế đến điểm đón"]
+    P --> Q["Thông báo tài xế đã đến"]
+    Q --> R["Tài xế đón khách"]
+    R --> S["Cập nhật trạng thái đang di chuyển"]
+    S --> T["Thực hiện chuyến đi"]
+    T --> U["Hoàn thành chuyến"]
+    U --> V["Tính cước"]
+    V --> W{"Chọn phương thức thanh toán"}
 
-    W -- Tiền mặt --> X[Ghi nhận thanh toán tiền mặt]
-    W -- Điện tử --> Y[Thanh toán qua Payment Provider]
+    W -->|Tiền mặt| X["Ghi nhận thanh toán tiền mặt"]
+    W -->|Điện tử| Y["Thanh toán qua Payment Provider"]
 
-    Y --> AA{Thanh toán thành công?}
-    AA -- Có --> AB[Cập nhật thanh toán thành công]
-    AA -- Không --> AC[Thông báo thanh toán thất bại]
-    AC --> AD[Cho phép thanh toán lại theo chính sách]
+    Y --> AA{"Thanh toán thành công?"}
+    AA -->|Có| AB["Cập nhật thanh toán thành công"]
+    AA -->|Không| AC["Thông báo thanh toán thất bại"]
+    AC --> AD["Cho phép thanh toán lại theo chính sách"]
     AD --> Y
 
-    X --> AE[Thông báo hoàn thành chuyến]
+    X --> AE["Thông báo hoàn thành chuyến"]
     AB --> AE
-    AE --> AF[Khách hàng đánh giá tài xế]
-    AF --> Z([Kết thúc])
-6.2 Quy trình quản lý và vận hành
+    AE --> AF["Khách hàng đánh giá tài xế"]
+    AF --> Z
+```
+
+6.2. Quy trình quản lý và vận hành
+
+```mermaid
 flowchart TD
-    A([Bắt đầu]) --> B[Nhân viên vận hành đăng nhập]
-    B --> C{Kiểm tra quyền truy cập}
+    A["Bắt đầu"] --> B["Nhân viên vận hành đăng nhập"]
+    B --> C{"Kiểm tra quyền truy cập"}
 
-    C -- Không có quyền --> D[Thông báo từ chối truy cập]
-    D --> Z([Kết thúc])
+    C -->|Không có quyền| D["Thông báo từ chối truy cập"]
+    D --> Z["Kết thúc"]
 
-    C -- Có quyền --> E[Truy cập hệ thống quản trị]
+    C -->|Có quyền| E["Truy cập hệ thống quản trị"]
 
-    E --> F{Chức năng quản lý}
+    E --> F{"Chọn chức năng quản lý"}
 
-    F --> G[Quản lý khách hàng]
-    F --> H[Quản lý tài xế]
-    F --> I[Quản lý phương tiện]
-    F --> J[Theo dõi chuyến đang diễn ra]
-    F --> K[Tra cứu giao dịch]
-    F --> L[Xử lý chuyến bất thường]
-    F --> M[Xem báo cáo]
+    F --> G["Quản lý khách hàng"]
+    F --> H["Quản lý tài xế"]
+    F --> I["Quản lý phương tiện"]
+    F --> J["Theo dõi chuyến đang diễn ra"]
+    F --> K["Tra cứu giao dịch"]
+    F --> L["Xử lý chuyến bất thường"]
+    F --> M["Xem báo cáo"]
 
-    G --> N[Ghi nhận thao tác]
+    G --> N["Ghi nhận thao tác"]
     H --> N
     I --> N
     J --> N
@@ -307,59 +312,67 @@ flowchart TD
     L --> N
     M --> N
 
-    N --> O[Audit Log]
-    O --> Z([Kết thúc])
-6.3 Quy trình tìm và phân công tài xế
+    N --> O["Audit Log"]
+    O --> Z["Kết thúc"]
+```
+
+6.3. Quy trình tìm và phân công tài xế
+
+```mermaid
 flowchart TD
-    A([Có yêu cầu đặt chuyến]) --> B[Xác định vị trí khách hàng]
-    B --> C[Lấy danh sách tài xế đang sẵn sàng]
-    C --> D[Lọc tài xế phù hợp]
-    D --> E{Có tài xế phù hợp?}
+    A["Có yêu cầu đặt chuyến"] --> B["Xác định vị trí khách hàng"]
+    B --> C["Lấy danh sách tài xế đang sẵn sàng"]
+    C --> D["Lọc tài xế phù hợp"]
+    D --> E{"Có tài xế phù hợp?"}
 
-    E -- Không --> F[Thông báo không tìm được tài xế]
-    F --> Z([Kết thúc])
+    E -->|Không| F["Thông báo không tìm được tài xế"]
+    F --> Z["Kết thúc"]
 
-    E -- Có --> G[Ưu tiên tài xế theo tiêu chí vận hành]
-    G --> H[Gửi yêu cầu đến tài xế]
-    H --> I[Chờ phản hồi]
+    E -->|Có| G["Ưu tiên tài xế theo tiêu chí vận hành"]
+    G --> H["Gửi yêu cầu đến tài xế"]
+    H --> I["Chờ phản hồi"]
 
-    I --> J{Tài xế phản hồi?}
+    I --> J{"Tài xế phản hồi?"}
 
-    J -- Không --> K[Hết thời gian phản hồi]
-    K --> L{Còn tài xế khác?}
+    J -->|Không| K["Hết thời gian phản hồi"]
+    K --> L{"Còn tài xế khác?"}
 
-    J -- Có --> M{Tài xế chấp nhận?}
-    M -- Không --> L
+    J -->|Có| M{"Tài xế chấp nhận?"}
+    M -->|Không| L
 
-    L -- Có --> G
-    L -- Không --> F
+    L -->|Có| G
+    L -->|Không| F
 
-    M -- Có --> N[Gán tài xế cho chuyến]
-    N --> O[Thông báo cho khách hàng]
-    O --> P([Kết thúc])
+    M -->|Có| N["Gán tài xế cho chuyến"]
+    N --> O["Thông báo cho khách hàng"]
+    O --> P["Kết thúc"]
+```
+
 6.4. Quy trình thanh toán
+
+```mermaid
 flowchart TD
-    A([Chuyến hoàn thành]) --> B[Tính cước]
-    B --> C[Hiển thị số tiền phải trả]
-    C --> D{Khách hàng chọn phương thức}
+    A["Chuyến hoàn thành"] --> B["Tính cước"]
+    B --> C["Hiển thị số tiền phải trả"]
+    C --> D{"Khách hàng chọn phương thức"}
 
-    D -- Tiền mặt --> E[Khách hàng thanh toán tiền mặt]
-    E --> F[Ghi nhận thanh toán]
-    F --> Z([Kết thúc])
+    D -->|Tiền mặt| E["Khách hàng thanh toán tiền mặt"]
+    E --> F["Ghi nhận thanh toán"]
+    F --> Z["Kết thúc"]
 
-    D -- Thanh toán điện tử --> G[Gửi yêu cầu Payment Provider]
-    G --> H{Thanh toán thành công?}
+    D -->|Điện tử| G["Gửi yêu cầu Payment Provider"]
+    G --> H{"Thanh toán thành công?"}
 
-    H -- Có --> I[Cập nhật trạng thái thanh toán thành công]
-    I --> J[Thông báo kết quả cho khách hàng]
+    H -->|Có| I["Cập nhật thanh toán thành công"]
+    I --> J["Thông báo kết quả cho khách hàng"]
     J --> Z
 
-    H -- Không --> K[Cập nhật trạng thái thất bại]
-    K --> L[Thông báo thanh toán thất bại]
-    L --> M{Thanh toán lại?}
+    H -->|Không| K["Cập nhật trạng thái thất bại"]
+    K --> L["Thông báo thanh toán thất bại"]
+    L --> M{"Thanh toán lại?"}
 
-    M -- Có --> G
-    M -- Không --> N[Xử lý theo chính sách doanh nghiệp]
+    M -->|Có| G
+    M -->|Không| N["Xử lý theo chính sách doanh nghiệp"]
     N --> Z
 ```
 
@@ -467,5 +480,6 @@ Bước 10: Xác định non functional requirment
 Bước 11: vẽ usecase, UC 
 Bước 12: usecase đặc tả 
 Bước 13: Acception tiêu chí chấp nhận (AC) 
+Bước 14: Truy xuất nguồn gốc yêu cầu
 
 
